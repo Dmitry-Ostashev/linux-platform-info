@@ -35,9 +35,9 @@ function getLibCType () {
 }
 
 var libcType = isLinux ? getLibCType() : LIBC_TYPE.unknown;
-
+var arch     = /arm/.test(process.arch) ? 'arm' : '';
 
 exports.LIBC_TYPE = LIBC_TYPE;
 exports.bits      = bits;
 exports.libcType  = libcType;
-exports.platform  = libcType + '-' + bits;
+exports.platform  = libcType + '-' + arch + bits;
